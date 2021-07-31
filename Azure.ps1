@@ -34,7 +34,7 @@ $NICName = "INSNIC001"
 $ComputerName = "INS-AZ-IT-001"
 $VMName = "INSAZIT001"
 $VMSize = "Standard_B1ls"
-$VMImage = "*/Ubuntu/Skus/20.04-LTS"
+$VMImage = "*/Ubuntu/Skus"
 
 # Create a new resource group
 Write-Output -InputObject "Creating resource group"
