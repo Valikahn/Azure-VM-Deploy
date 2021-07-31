@@ -32,4 +32,3 @@ Rich-click the Azure.ps1 file and run with PowerShell and the script will run an
 ## Note!
 The Scrip may stop at times, please let the script complete.
 At times it will be building a resource and deploying a VM or VNIC.
-
