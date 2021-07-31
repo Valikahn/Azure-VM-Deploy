@@ -1,28 +1,23 @@
 #
-# Copyright (C) 2020 - 2021 Valikahn <git@insentrica.net>
-# Program v0.1-alpha - Code Name: INSZURE
-# Licensed under the GPLv3 License.
-#
-# Website:  https://www.insentrica.net
-# Github:   https://github.com/Valikahn
-# GPLv3 Licence:  https://www.gnu.org/licenses/gpl-3.0.en.html 
-#
 # +-------------------------------------------------------------------+
 # | Azure-VM-Deploy                                                   |
-# | How to create a virtual machine using PowerShell                  |
+# | Create an Azure virtual machine with resources using PowerShell   |
 # |-------------------------------------------------------------------|
-# | File Name:   Azure.ps1                                            |
+# | File Name:  Azure.ps1                                             |
+# | Program Version:  0.1-alpha - Code Name: INSZURE                  |
 # | Website:  https://www.insentrica.net                              |
 # | Author:  Valikahn <giti@insentrica.net>                           |
-# | © 2020 - 2021 - Insentrica                                        |
+# | Copyright (C) 2020 - 2021 Valikahn <git@insentrica.net>           |
+# | Licensed under the GPLv3 License.                                 |
 # +-------------------------------------------------------------------+
 # | Last Updated on May 2, 2021 by Valikahn                           |
+# | Website:  https://www.insentrica.net                              |
+# | Github:   https://github.com/Valikahn                             |
+# | GPLv3 Licence:  https://www.gnu.org/licenses/gpl-3.0.en.html      |
 # +-------------------------------------------------------------------+
 #
 
-# Initialise environment and variables
-
-## Login
+## Login to Azure Environment
 Connect-AzAccount
 
 # Input Variables
@@ -83,7 +78,7 @@ $NetworkInterface = New-AzNetworkInterface -Name $NICName -ResourceGroupName $RG
 
 # Define a credential object to store the username and password for the virtual machine
 $Username = "Insentrica"
-$Password = 'Ma6t0gr6d!' | ConvertTo-SecureString -Force -AsPlainText
+$Password = 'InSeNtRiCa2021' | ConvertTo-SecureString -Force -AsPlainText
 $Credential = New-Object -TypeName PSCredential -ArgumentList ($Username, $Password)
 
 # Create the virtual machine configuration object
