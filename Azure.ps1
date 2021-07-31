@@ -1,4 +1,3 @@
-This is a Test!!!
 #
 # Copyright (C) 2020 - 2021 Valikahn <git@insentrica.net>
 # Program v0.1-alpha - Code Name: INSZURE
