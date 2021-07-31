@@ -7,6 +7,18 @@
 # Github:   https://github.com/Valikahn
 # GPLv3 Licence:  https://www.gnu.org/licenses/gpl-3.0.en.html 
 #
+# +-------------------------------------------------------------------+
+# | Azure-VM-Deploy                                                   |
+# | How to create a virtual machine using PowerShell                  |
+# |-------------------------------------------------------------------|
+# | File Name:   Azure.ps1                                            |
+# | Website:  https://www.insentrica.net                              |
+# | Author:  Valikahn <giti@insentrica.net>                           |
+# | © 2020 - 2021 - Insentrica                                        |
+# +-------------------------------------------------------------------+
+# | Last Updated on May 2, 2021 by Valikahn                           |
+# +-------------------------------------------------------------------+
+#
 
 # Initialise environment and variables
 
