@@ -1,11 +1,3 @@
-# Copyright (C) 2020 - 2021 Valikahn <git@insentrica.net>
-# Program v0.1-alpha - Code Name: INSZURE
-# Licensed under the GPLv3 License.
-
-# Website:  https://www.insentrica.net
-# Github:   https://github.com/Valikahn/lamp
-# GPLv3 Licence:  https://www.gnu.org/licenses/gpl-3.0.en.html 
-
 # Initialise environment and variables
 
 ## Login
