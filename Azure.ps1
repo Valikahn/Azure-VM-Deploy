@@ -24,9 +24,10 @@ $ArmEndpoint = "https://management.region.insentrica.net"
 Connect-AzAccount
 
 # Get location
-$Location = Get-AzLocation | Where-Object {($_.Location -Like 'uk*')}
+# $Location = Get-AzLocation | Where-Object {($_.Location -Like 'uk*')}
 
 # Input Variables
+$Location = "UK West"
 $RGName = "Insentrica-VM"
 $SAName = "INSStorage31072021".ToLower()
 $SubnetName = "INSSubnet001"
