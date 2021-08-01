@@ -24,47 +24,53 @@ Connect-AzAccount
 Read-Host -Prompt 'Press Enter to continue'
 
 
+## Create SSH key pair
+Write-Output -InputObject "Create SSH key pair"
+ssh-keygen -t rsa -b 4096
+Read-Host -Prompt 'Press Enter to continue'
+cls
+
 ## Create a resource group
 ####
-Write-Output -InputObject "Virtual machine created successfully"
+Write-Output -InputObject "Create a resource group"
 New-AzResourceGroup -Name "myResourceGroup" -Location "UK West"
 Read-Host -Prompt 'Press Enter to continue'
-
+cls
 
 ##Create virtual network resources
 ####
 # Create a subnet configuration
-Write-Output -InputObject "Virtual machine created successfully"
+Write-Output -InputObject "Create virtual network resources"
 $subnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name "mySubnet" `
   -AddressPrefix 192.168.1.0/24
-
 Read-Host -Prompt 'Press Enter to continue'
+cls
 
 # Create a virtual network
-Write-Output -InputObject "Virtual machine created successfully"
+Write-Output -InputObject "Create a virtual network"
 $vnet = New-AzVirtualNetwork `
   -ResourceGroupName "myResourceGroup" `
   -Location "UK West" `
   -Name "myVNET" `
   -AddressPrefix 192.168.0.0/16 `
   -Subnet $subnetConfig
-
 Read-Host -Prompt 'Press Enter to continue'
+cls
 
 # Create a public IP address and specify a DNS name
-Write-Output -InputObject "Virtual machine created successfully"
+Write-Output -InputObject "Create a public IP address and specify a DNS name"
 $pip = New-AzPublicIpAddress `
   -ResourceGroupName "myResourceGroup" `
   -Location "UK West" `
   -AllocationMethod Static `
   -IdleTimeoutInMinutes 4 `
   -Name "mypublicdns$(Get-Random)"
-
 Read-Host -Prompt 'Press Enter to continue'
+cls
 
 # Create an inbound network security group rule for port 22
-Write-Output -InputObject "Virtual machine created successfully"
+Write-Output -InputObject "Create an inbound network security group rule for port 22"
 $nsgRuleSSH = New-AzNetworkSecurityRuleConfig `
   -Name "myNetworkSecurityGroupRuleSSH"  `
   -Protocol "Tcp" `
@@ -75,11 +81,11 @@ $nsgRuleSSH = New-AzNetworkSecurityRuleConfig `
   -DestinationAddressPrefix * `
   -DestinationPortRange 22 `
   -Access "Allow"
-
 Read-Host -Prompt 'Press Enter to continue'
+cls
 
 # Create an inbound network security group rule for port 80
-Write-Output -InputObject "Virtual machine created successfully"
+Write-Output -InputObject "Create an inbound network security group rule for port 80"
 $nsgRuleWeb = New-AzNetworkSecurityRuleConfig `
   -Name "myNetworkSecurityGroupRuleWWW"  `
   -Protocol "Tcp" `
@@ -90,21 +96,21 @@ $nsgRuleWeb = New-AzNetworkSecurityRuleConfig `
   -DestinationAddressPrefix * `
   -DestinationPortRange 80 `
   -Access "Allow"
-
 Read-Host -Prompt 'Press Enter to continue'
+cls
 
 # Create a network security group
-Write-Output -InputObject "Virtual machine created successfully"
+Write-Output -InputObject "Create a network security group"
 $nsg = New-AzNetworkSecurityGroup `
   -ResourceGroupName "myResourceGroup" `
   -Location "UK West" `
   -Name "myNetworkSecurityGroup" `
   -SecurityRules $nsgRuleSSH,$nsgRuleWeb
-
 Read-Host -Prompt 'Press Enter to continue'
+cls
 
 # Create a virtual network card and associate with public IP address and NSG
-Write-Output -InputObject "Virtual machine created successfully"
+Write-Output -InputObject "Create a virtual network card and associate with public IP address and NSG"
 $nic = New-AzNetworkInterface `
   -Name "myNic" `
   -ResourceGroupName "myResourceGroup" `
@@ -112,52 +118,59 @@ $nic = New-AzNetworkInterface `
   -SubnetId $vnet.Subnets[0].Id `
   -PublicIpAddressId $pip.Id `
   -NetworkSecurityGroupId $nsg.Id
-
 Read-Host -Prompt 'Press Enter to continue'
+cls
 
 ## Create a virtual machine
 ####
 # Define a credential object
-Write-Output -InputObject "Virtual machine created successfully"
-$securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
+# Write-Output -InputObject "Define a credential object"
+# $securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
+# $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
+# Read-Host -Prompt 'Press Enter to continue'
+# cls
 
+# Define a credential object to store the username and password for the virtual machine
+Write-Output -InputObject "Creating Credentials for Virtual Machine"
+    $Username = "Insentrica"
+    $Password = 'InSeNtRiCa2021' | ConvertTo-SecureString -Force -AsPlainText
+    $Credential = New-Object -TypeName PSCredential -ArgumentList ($Username, $Password)
 Read-Host -Prompt 'Press Enter to continue'
+cls
 
 # Create a virtual machine configuration
-Write-Output -InputObject "Virtual machine created successfully"
+Write-Output -InputObject "Create a virtual machine configuration"
 $vmConfig = New-AzVMConfig `
   -VMName "myVM" `
   -VMSize "Standard_D1" | `
 Set-AzVMOperatingSystem `
   -Linux `
   -ComputerName "myVM" `
-  -Credential $cred `
+  -Credential $Credential `
   -DisablePasswordAuthentication | `
 Set-AzVMSourceImage `
-  -PublisherName "Focal Fossa" `
+  -PublisherName "Canonical" `
   -Offer "UbuntuServer" `
-  -Skus "20.04-LTS" `
+  -Skus "*" `
   -Version "latest" | `
 Add-AzVMNetworkInterface `
   -Id $nic.Id
-
 Read-Host -Prompt 'Press Enter to continue'
+cls
 
 # Configure the SSH key
-Write-Output -InputObject "Virtual machine created successfully"
+Write-Output -InputObject "Configure the SSH key"
 $sshPublicKey = cat ~/.ssh/id_rsa.pub
 Add-AzVMSshPublicKey `
   -VM $vmconfig `
   -KeyData $sshPublicKey `
   -Path "/home/azureuser/.ssh/authorized_keys"
 
-Read-Host -Prompt 'Press Enter to continue'
-  
 New-AzVM `
   -ResourceGroupName "myResourceGroup" `
   -Location ukwest -VM $vmConfig
-
+Read-Host -Prompt 'Press Enter to continue'
+cls
 
 # Success Message
 Write-Output -InputObject "Virtual machine created successfully"
