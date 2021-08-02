@@ -9,7 +9,6 @@ Before creating the virtual machine, it is necessary to create storage and netwo
 ## Prerequisites
 Before you begin, ensure your PowerShell environment is set up, all "Input Variables" need to be set. (Like Below)
 
-
 ### Input Variables
 	$Location = "ukwest"
 	$RGName = "Insentrica-DevOps"
@@ -32,6 +31,17 @@ Before you begin, ensure your PowerShell environment is set up, all "Input Varia
 	$DiskSku = "Standard_LRS"
 	$OSDiskSize = "120"  ##  In Gigabytes (GB)
 	$DataDiskSize = "250"  ##  In Gigabytes (GB)
+
+
+## Script Commands
+####  Connect-AzAccount
+To list all the Azure regions, first logion to Azure using the following command. (Note: If you are on macOS or Linux, run pwsh to start PowerShell).
+Connect to Azure with an authenticated account for use with cmdlets from the Az PowerShell modules.
+https://docs.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-6.2.1
+
+```
+Connect-AzAccount
+```
 
 
 ## Deploy the virtual machine
