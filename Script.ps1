@@ -50,6 +50,18 @@ Start-Sleep -s 5
 Read-Host -Prompt 'Completed...Press Enter to continue'
 cls
 
+
+
+############################################################################################################
+##                                                                                                        ##
+##  DO NOT EDIT BELOW THIS LINE WITHOUT KNOWING WHAT YOU'RE EDITING OR TAKING A BACKUP!                   ##
+##  THERE IS RISK OF CAUSING DAMAGE TO THE OPERATION OF THIS SCRIPT AND THE AZURE ENVIRONMENT!            ##
+##  EDITING IS CARRIED OUT AT YOUR OWN RISK AND NOT LOSS OR DAMAGE IS THE RESPONSIBILITY OF THE CREATOR!  ##
+##                                                                                                        ##
+############################################################################################################
+
+
+
 ## Create resource group
 ####
 Write-Output -InputObject "Create a resource group"
@@ -129,6 +141,6 @@ Write-Output -InputObject "Virtual machine created successfully"
 #  
 #  
 #  
-#####################   
+#####################
 ##  End of Script  ##
 #####################
