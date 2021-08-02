@@ -25,9 +25,9 @@ Read-Host -Prompt 'Press Enter to continue'
 
 
 ## Create SSH key pair
-Write-Output -InputObject "Create SSH key pair"
-ssh-keygen -t rsa -b 4096
-Read-Host -Prompt 'Press Enter to continue'
+## Write-Output -InputObject "Create SSH key pair"
+## ssh-keygen -t rsa -b 4096
+## Read-Host -Prompt 'Press Enter to continue'
 cls
 
 ## Create a resource group
@@ -121,20 +121,17 @@ $nic = New-AzNetworkInterface `
 Read-Host -Prompt 'Press Enter to continue'
 cls
 
-## Create a virtual machine
-####
-# Define a credential object
-# Write-Output -InputObject "Define a credential object"
-# $securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
-# $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
-# Read-Host -Prompt 'Press Enter to continue'
-# cls
-
 # Define a credential object to store the username and password for the virtual machine
 Write-Output -InputObject "Creating Credentials for Virtual Machine"
     $Username = "Insentrica"
-    $Password = 'InSeNtRiCa2021' | ConvertTo-SecureString -Force -AsPlainText
+    $Password = 'Ma6t0gr6d!' | ConvertTo-SecureString -Force -AsPlainText
     $Credential = New-Object -TypeName PSCredential -ArgumentList ($Username, $Password)
+Read-Host -Prompt 'Press Enter to continue'
+cls
+
+# Create availability set
+Write-Output -InputObject "Creating Availability Set"
+az vm availability-set create --resource-group myResourceGroup --name myAvailabilitySet
 Read-Host -Prompt 'Press Enter to continue'
 cls
 
@@ -149,26 +146,25 @@ Set-AzVMOperatingSystem `
   -Credential $Credential `
   -DisablePasswordAuthentication | `
 Set-AzVMSourceImage `
-  -PublisherName "Canonical" `
-  -Offer "UbuntuServer" `
-  -Skus "*" `
-  -Version "latest" | `
+  -image UbuntuLTS | `
 Add-AzVMNetworkInterface `
   -Id $nic.Id
 Read-Host -Prompt 'Press Enter to continue'
 cls
 
+# az vm create --resource-group myResourceGroup --name myVM --location ukwest --availability-set myAvailabilitySet --nics myNic --image UbuntuLTS --admin-username azureuser --generate-ssh-keys
+
 # Configure the SSH key
-Write-Output -InputObject "Configure the SSH key"
-$sshPublicKey = cat ~/.ssh/id_rsa.pub
-Add-AzVMSshPublicKey `
-  -VM $vmconfig `
-  -KeyData $sshPublicKey `
-  -Path "/home/azureuser/.ssh/authorized_keys"
+## Write-Output -InputObject "Configure the SSH key"
+## $sshPublicKey = cat ~/.ssh/id_rsa.pub
+## Add-AzVMSshPublicKey `
+##   -VM $vmconfig `
+##   -KeyData $sshPublicKey `
+##   -Path "/home/azureuser/.ssh/authorized_keys"
 
 New-AzVM `
   -ResourceGroupName "myResourceGroup" `
-  -Location ukwest -VM $vmConfig
+  -Location ukwest -VM -availability-set myAvailabilitySet $vmConfig
 Read-Host -Prompt 'Press Enter to continue'
 cls
 
