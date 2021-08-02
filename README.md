@@ -11,27 +11,27 @@ Before you begin, ensure your PowerShell environment is set up, all "Input Varia
 
 
 ### Input Variables
-	$Location = "ukwest"<br />
-	$RGName = "Insentrica-DevOps"<br />
-	$HDDName = "INSStorage02082021".ToLower()<br />
-	$SAName = "INSBlobStorage02082021".ToLower()<br />
-	$SubnetName = "INSSubnet001"<br />
-	$SubnetRange = "10.11.1.0/24"<br />
-	$VNetName = "INSVirNetwork"<br />
-	$VNetRange = "10.11.0.0/16"<br />
-	$PublicIPName = "INSPublicIP"<br />
-	$PublicDNS = "valikahnpubdns"<br />
-	$NSGName = "INSNSG001"<br />
-	$NSGNameRuleSSH = "SSHPortRule22"<br />
-	$NSGNameRuleWeb = "WebPortRule80"<br />
-	$NICName = "INSNIC001"<br />
-	$AVSet = "INSAVSet"<br />
-	$VMName = "INSAZIT001"<br />
-	$VMImage = "UbuntuLTS"<br />
-	$VMSize = "Standard_B1ls"<br />
-	$DiskSku = "Standard_LRS"<br />
-	$OSDiskSize = "120"  ##  In Gigabytes (GB)<br />
-	$DataDiskSize = "250"  ##  In Gigabytes (GB)<br />
+	$Location = "ukwest"
+	$RGName = "Insentrica-DevOps"
+	$HDDName = "INSStorage02082021".ToLower()
+	$SAName = "INSBlobStorage02082021".ToLower()
+	$SubnetName = "INSSubnet001"
+	$SubnetRange = "10.11.1.0/24"
+	$VNetName = "INSVirNetwork"
+	$VNetRange = "10.11.0.0/16"
+	$PublicIPName = "INSPublicIP"
+	$PublicDNS = "valikahnpubdns"
+	$NSGName = "INSNSG001"
+	$NSGNameRuleSSH = "SSHPortRule22"
+	$NSGNameRuleWeb = "WebPortRule80"
+	$NICName = "INSNIC001"
+	$AVSet = "INSAVSet"
+	$VMName = "INSAZIT001"
+	$VMImage = "UbuntuLTS"
+	$VMSize = "Standard_B1ls"
+	$DiskSku = "Standard_LRS"
+	$OSDiskSize = "120"  ##  In Gigabytes (GB)
+	$DataDiskSize = "250"  ##  In Gigabytes (GB)
 
 
 ## Deploy the virtual machine
