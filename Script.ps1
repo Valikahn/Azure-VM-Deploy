@@ -3,8 +3,8 @@
 # | Azure-VM-Deploy                                                   |
 # | Create an Azure virtual machine with resources using PowerShell   |
 # |-------------------------------------------------------------------|
-# | File Name:  Script.ps1                                            |
-# | Program Version:  0.1-alpha - Code Name: INSZURE                  |
+# | File Name:  AzureDeploymentScript.ps1                             |
+# | Program Version:  1.0-beta - Code Name: INSZURE                   |
 # | Website:  https://www.insentrica.net                              |
 # | Author:  Valikahn <giti@insentrica.net>                           |
 # | Copyright (C) 2020 - 2021 Valikahn <git@insentrica.net>           |
@@ -22,9 +22,16 @@ Connect-AzAccount
 
 ## Variables
 ####
+Write-Output -InputObject "Deploying Script - AzureDeploymentScript"
+Write-Output -InputObject "Please Wait..."
+Start-Sleep -s 7
 Write-Output -InputObject "Loading variables"
 Start-Sleep -s 5
-
+	######################################
+	##  CHANGE BELOW AS YOU SEE FIT!!!  ##
+	######################################
+	$Username = 'Insentrica'.ToLower()  ##  Remember to update/change this.  Only included as part of this Script Demo. 
+	$Password = '!n$entrICA2021!'  ##  Remember to update/change this.  Only included as part of this Script Demo.
 	$Location = "ukwest"
 	$RGName = "Insentrica-DevOps"
 	$HDDName = "INSStorage02082021".ToLower()
@@ -124,11 +131,8 @@ Write-Output -InputObject "Create Availability Set for Resource Group"
 ## Create Virtual Machine
 ####
 Write-Output -InputObject "Create Virtual Machine"
-    $Username = 'Insentrica'.ToLower()
-    $Password = '!n$entrICA2021!' | ConvertTo-SecureString -Force -AsPlainText
 	az vm create --resource-group $RGName --name $VMName --storage-sku $DiskSku --os-disk-size-gb $OSDiskSize --location $Location --availability-set $AVSet --nics $NICName --image $VMImage --size $VMSize --admin-username $Username --admin-password $Password
 	az vm disk attach -g $RGName --vm-name $VMName --name $HDDName --new --size-gb $DataDiskSize --sku $DiskSku
-#	Read-Host -Prompt 'Completed...Press Enter to continue'
 	cls
 
 ## Success Message

@@ -42,10 +42,6 @@ az vm list-sizes --location ukwest --output table
 Before you begin, ensure your PowerShell environment is set up, all "Input Variables" need to be set. (Like Below)
 
 
-## Updates for your own Environment
-From the Script Commands above you will be able to source the information for the Input Variables below.
-These can be renamed and updated as long as they're within range.
-
 ### Input Variables
 	$Location = "ukwest"
 	$RGName = "Insentrica-DevOps"
@@ -68,6 +64,17 @@ These can be renamed and updated as long as they're within range.
 	$DiskSku = "Standard_LRS"
 	$OSDiskSize = "120"  ##  In Gigabytes (GB)
 	$DataDiskSize = "250"  ##  In Gigabytes (GB)
+
+
+## Script Commands
+####  Connect-AzAccount
+To list all the Azure regions, first logion to Azure using the following command. (Note: If you are on macOS or Linux, run pwsh to start PowerShell).
+Connect to Azure with an authenticated account for use with cmdlets from the Az PowerShell modules.
+https://docs.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-6.2.1
+
+```
+Connect-AzAccount
+```
 
 
 ## Deploy the virtual machine
