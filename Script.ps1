@@ -3,7 +3,7 @@
 # | Azure-VM-Deploy                                                   |
 # | Create an Azure virtual machine with resources using PowerShell   |
 # |-------------------------------------------------------------------|
-# | File Name:  Script.ps1                                             |
+# | File Name:  Script.ps1                                            |
 # | Program Version:  0.1-alpha - Code Name: INSZURE                  |
 # | Website:  https://www.insentrica.net                              |
 # | Author:  Valikahn <giti@insentrica.net>                           |
