@@ -9,7 +9,7 @@ Before creating the virtual machine, it is necessary to create storage and netwo
 ## Script Commands
 ####  Connect-AzAccount
 To list all the Azure regions, first logion to Azure using the following command. (Note: If you are on macOS or Linux, run pwsh to start PowerShell).
-Connect to Azure with an authenticated account for use with cmdlets from the Az PowerShell modules.
+Connect to Azure with an authenticated account for use with cmdlets from the Az PowerShell modules.<br />
 https://docs.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-6.2.1
 
 ```
@@ -17,14 +17,14 @@ Connect-AzAccount
 ```
 
 ####  Get-AzLocation
-To list all the available regions run the following command.
+To list all the available regions run the following command.<br />
 https://docs.microsoft.com/en-us/powershell/module/az.resources/get-azlocation?view=azps-6.2.1
 ```
 get-azlocation | select displayname,location
 ```
 
 ####  az vm image list
-List the VM/VMSS images available in the Azure Marketplace.
+List the VM/VMSS images available in the Azure Marketplace.<br />
 https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list
 ```
 az vm image list --output table
@@ -32,7 +32,7 @@ az vm image list --output table
 ```
 
 ####  az vm list-sizes
-List the available VM sizes in the UK West region.
+List the available VM sizes in the UK West region.<br />
 https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_list_sizes
 ```
 az vm list-sizes --location ukwest --output table
@@ -69,7 +69,7 @@ Before you begin, ensure your PowerShell environment is set up, all "Input Varia
 ## Script Commands
 ####  Connect-AzAccount
 To list all the Azure regions, first logion to Azure using the following command. (Note: If you are on macOS or Linux, run pwsh to start PowerShell).
-Connect to Azure with an authenticated account for use with cmdlets from the Az PowerShell modules.
+Connect to Azure with an authenticated account for use with cmdlets from the Az PowerShell modules.<br />
 https://docs.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-6.2.1
 
 ```
