@@ -38,9 +38,9 @@ https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_list_s
 az vm list-sizes --location ukwest --output table
 ```
 
+
 ## Prerequisites
 Before you begin, ensure your PowerShell environment is set up, all "Input Variables" need to be set. (Like Below)
-
 
 ### Input Variables
 	$Location = "ukwest"
@@ -65,10 +65,26 @@ Before you begin, ensure your PowerShell environment is set up, all "Input Varia
 	$OSDiskSize = "120"  ##  In Gigabytes (GB)
 	$DataDiskSize = "250"  ##  In Gigabytes (GB)
 
-
 ## Deploy the virtual machine
 Rich-click the Script.ps1 file and run with PowerShell and the script will run and prompt where required.
 
-
 ## Note!
 The Scrip may stop at times, please let the script complete.<br />
+
+## Copyright
+Copyright (C) 2020 - 2021 Valikahn <git@insentrica.net><br />
+Program Version:  1.0-beta - Code Name: INSZURE <br />
+
+## Bugs & Issues
+Please feel free to report any bugs or issues to us.
+* Email:  git@insentrica.net 
+* Issues:  <a href="https://github.com/Valikahn/Azure-VM-Deploy/issues">Via GitHub</a>
+* Website:  https://www.insentrica.net
+* Github:   https://github.com/Valikahn/Azure-VM-Deploy
+
+## Licence
+Licensed under the GPLv3 License.
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ 
+GPLv3 Licence:  https://www.gnu.org/licenses/gpl-3.0.en.html 
