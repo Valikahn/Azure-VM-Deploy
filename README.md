@@ -66,17 +66,6 @@ Before you begin, ensure your PowerShell environment is set up, all "Input Varia
 	$DataDiskSize = "250"  ##  In Gigabytes (GB)
 
 
-## Script Commands
-####  Connect-AzAccount
-To list all the Azure regions, first logion to Azure using the following command. (Note: If you are on macOS or Linux, run pwsh to start PowerShell).
-Connect to Azure with an authenticated account for use with cmdlets from the Az PowerShell modules.<br />
-https://docs.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-6.2.1
-
-```
-Connect-AzAccount
-```
-
-
 ## Deploy the virtual machine
 Rich-click the Script.ps1 file and run with PowerShell and the script will run and prompt where required.
 
